@@ -56,6 +56,13 @@ export default function webpackBase(options = {}) {
           }
         },
         {
+          test: /\.css$/,
+          use: [
+            devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+            'css-loader'
+          ]
+        },
+        {
           test: /\.styl$/,
           use: [
             devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
