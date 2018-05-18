@@ -1,6 +1,7 @@
 import React       from 'react';
 import { hot }     from 'react-hot-loader';
 import classes     from './App.styl';
+import Form        from '@/containers/Form/Form.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class App extends React.Component {
       <div className={ classes.Wrapper }>
         <div className={ classes.Sidebar }>
           <h1>Bienvenido a Resuelve</h1>
+          <Form />
         </div>
         <div className={ classes.Sidebar }>
         </div>
