@@ -2,6 +2,7 @@ import React       from 'react';
 import { hot }     from 'react-hot-loader';
 import classes     from './App.styl';
 import Form        from '@/containers/Form/Form.jsx';
+import Map         from '@/containers/Map/Map.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class App extends React.Component {
           <Form />
         </div>
         <div className={ classes.Sidebar }>
+          <Map />
         </div>
       </div>
     );
