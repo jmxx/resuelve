@@ -1,5 +1,7 @@
 import React        from 'react';
 import { hot }      from 'react-hot-loader';
+import { connect }  from 'react-redux';
+import * as actions from '@/store/actions';
 import classes      from './Form.styl';
 import formdata     from './formData';
 
@@ -20,6 +22,9 @@ class Form extends React.Component {
   }
 
   inputBlurHandler(event, inputId) {
+    if ('postal_code' === inputId) {
+      this.props.onPostalCodeChange(this.state.formData.postal_code.value);
+    }
   }
 
   onSubmit(event) {
@@ -53,4 +58,14 @@ class Form extends React.Component {
   }
 }
 
-export default hot(module)(Form);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onPostalCodeChange(postalCode) {
+      dispatch(actions.postalCodeChanged(postalCode))
+    }
+  };
+};
+
+export default hot(module)(
+  connect(null, mapDispatchToProps)(Form)
+);

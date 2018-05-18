@@ -1,0 +1,2 @@
+export const SET_MAP_COORDS = 'SET_MAP_COORDS';
+export const POSTAL_CODE_CHANGED = 'POSTAL_CODE_CHANGED';

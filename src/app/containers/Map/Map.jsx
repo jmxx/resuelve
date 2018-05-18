@@ -1,5 +1,7 @@
 import React          from 'react';
 import { hot }        from 'react-hot-loader';
+import { connect }    from 'react-redux';
+// import * as actions   from '@/store/actions';
 import GoogleMapReact from 'google-map-react';
 import classes        from './Map.styl';
 
@@ -8,8 +10,8 @@ class Map extends React.Component {
     return (
       <div className={ classes.MapContainer }>
         <GoogleMapReact
-          defaultCenter={ { lat: 23.634501, lng: -102.552784 } }
-          defaultZoom={ 6 }
+          center={ this.props.coords }
+          zoom={ this.props.zoom }
           >
         </GoogleMapReact>
       </div>
@@ -17,4 +19,10 @@ class Map extends React.Component {
   }
 }
 
-export default hot(module)(Map);
+const mapStateToProps = (state) => {
+  return state.map;
+};
+
+export default hot(module)(
+  connect(mapStateToProps)(Map)
+);
