@@ -18,6 +18,8 @@ class Form extends React.Component {
     const formElement = { ...formData[inputId], value };
     formData[inputId] = formElement;
 
+    this.props.onInputChange({ id: inputId, value });
+
     this.setState({ formData });
   }
 
@@ -60,8 +62,11 @@ class Form extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    onInputChange(input) {
+      dispatch(actions.inputChanged(input));
+    },
     onPostalCodeChange(postalCode) {
-      dispatch(actions.postalCodeChanged(postalCode))
+      dispatch(actions.postalCodeChanged(postalCode));
     }
   };
 };

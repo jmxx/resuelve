@@ -5,12 +5,16 @@ import {
   applyMiddleware, compose, createStore, combineReducers
 }                           from 'redux';
 import thunk                from 'redux-thunk';
-import { mapReducer }       from '@/store/reducers';
+import {
+  mapReducer,
+  formReducer
+}                           from '@/store/reducers';
 import App                  from '@/containers/App/App.jsx';
 import '@/app.styl';
 
 const rootReducer = combineReducers({
-  map: mapReducer
+  map: mapReducer,
+  form: formReducer
 });
 
 const store = createStore(rootReducer, compose(
