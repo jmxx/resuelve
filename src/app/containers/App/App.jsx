@@ -12,7 +12,11 @@ class App extends React.Component {
   render() {
     return (
       <div className={ classes.Wrapper }>
-        <h1>Bienvenido a Resuelve</h1>
+        <div className={ classes.Sidebar }>
+          <h1>Bienvenido a Resuelve</h1>
+        </div>
+        <div className={ classes.Sidebar }>
+        </div>
       </div>
     );
   }
